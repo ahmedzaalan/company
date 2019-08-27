@@ -15,7 +15,7 @@
     <div class="carousel-inner" role="listbox">
         @for ($i=0;$i<$slides->count();$i++)
         <div class="item {{ $i == 0 ? 'active' : '' }}">
-            <img src="image1.jpg" alt="Pic 1">
+            <img src="{{ Storage::url($slides[$i]->image_path)}}" alt="Pic 1">
             <div class="carousel-caption hidden-xs">
                <h1> programing</h1>
             <p class="lead">{{$slides[$i]->text}}</p>
@@ -37,26 +37,31 @@
         <span class="sr-only">Next</span>
     </a>
 </div>
-<section class="About text-center wow bounceIn" data-wow-duration="2s"  data-wow-offset="300" >
+<!--<section class="About text-center wow bounceIn" data-wow-duration="2s"  data-wow-offset="300" >
     <div class="container">
         <h1> Meet Our NewTemplete<span> Osama Inc.</span></h1>
         <p class="lead">Hello Created With All The Love With Hello Created With All The Love With <strong>Bootstrap</strong> 3.2.0</p>
     </div>
 
-</section>
+</section>-->
 <section class="features text-center">
    <div class="container">
-       <h1>Our Features</h1>
+       <h1>Our Projects</h1>
        <div class="row">
 
+       @foreach ($latest_projects as $project)
                <div class="col-lg-3 col-md-6">
                 <div class="feat hvr-float-shadow wow bounceInLeft" data-wow-duration="1s" data-wow-offset="400">
-                  <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-                    <h4>%100 Responsive</h4>
-                      <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed to an unknown typesetter in the 15th century who is thought to have scrambled parts of Cicero's De Finibus Bonorum et Malorum for use in a type specimen book</p>
+                  <!--<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>-->
+                    <h4>{{$project->title}}</h4>
+                      <p>
+                            {{$project->description}}
+                      </p>
                 </div>
            </div>
-           <div class="col-lg-3 col-md-6">
+       @endforeach
+           <!--
+        <div class="col-lg-3 col-md-6">
                <div class="feat hvr-float-shadow wow bounceInDown"data-wow-duration="1s" data-wow-offset="400">
                    <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
                    <h4>Retina Ready</h4>
@@ -77,6 +82,7 @@
                    <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed to an unknown typesetter in the 15th century who is thought to have scrambled parts of Cicero's De Finibus Bonorum et Malorum for use in a type specimen book</p>
                </div>
            </div>
+        -->
 
 
        </div>
@@ -90,12 +96,15 @@
         <div id="carrousel-testimonials" class="carousel slide" data-ride="carousel">
 
             <div class="carousel-inner" role="listbox">
-                <div class="item active">
-
-                    <p class="lead">Transition animations not supported in Internet Explorer 8 & 9 Bootstrap exclusively uses CSS3 for its animations, but Internet Explorer 8 & 9 don't support the necessary CSS properties. Thus, there are no slide transition animations when using these browsers. We have intentionally decided not to include jQuery-based fallbacks for the transitions.</p>
-                    <span> Osama Aboualatta</span>
+                    @foreach ($latest_opinions as $item)
+                    <div class="item {{ $loop->iteration == 1 ? 'active' : '' }}">
+                      <p class="lead">
+                            {{$item->content}}
+                        </p>
+                    <span> {{$item->name}}</span>
                 </div>
-
+@endforeach
+                <!--
                 <div class="item">
                     <p class="lead">
                         Transition animations not supported in Internet Explorer 8 & 9 Bootstrap exclusively uses CSS3 for its animations, but Internet Explorer 8 & 9 don't support the necessary CSS properties. Thus, there are no slide transition animations when using these browsers. We have intentionally decided not to include jQuery-based fallbacks for the transitions.
@@ -120,20 +129,15 @@
                 </div>
 
 
+                -->
             </div>
             <ol class="carousel-indicators ">
-                <li data-target="#carrousel-testimonials" data-slide-to="0" class="active">
-                    <img src="avatar1.jpg" alt="Osama"/>
+                    @foreach ($latest_opinions as $item)
+            <li data-target="#carrousel-testimonials" data-slide-to="{{$loop->iteration - 1 }}" class="{{ $loop->iteration == 1 ? 'active' : '' }}">
+                    <img src="{{url($item->image_path)}}" alt="Osama"/>
                 </li>
-                <li data-target="#carrousel-testimonials" data-slide-to="1">
-                    <img src="avatar2.jpg" alt="Maram" />
-                </li>
-                <li data-target="#carrousel-testimonials" data-slide-to="2">
-                    <img src="avatar3.jpg" alt="Ahmed" />
-                </li>
-                <li data-target="#carrousel-testimonials" data-slide-to="3">
-                    <img src="avatar4.jpg" alt="Raneem" />
-                </li>
+                @endforeach
+
             </ol>
 
         </div>
