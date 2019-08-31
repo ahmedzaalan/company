@@ -8,6 +8,11 @@ class Course extends Model
 {
     public function students()
     {
-        $this->hasMany(Student::class);
+       return $this->hasMany(Student::class);
+    }
+
+    public function category()
+    {
+       return $this->belongsTo(Category::class);
     }
 }

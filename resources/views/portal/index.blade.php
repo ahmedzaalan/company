@@ -145,65 +145,25 @@
 </section>
 <section class="price-table text-center">
   <div class="container">
-      <h1>Our Amazing Prices</h1>
+      <h1>Our Courses</h1>
 
       <div class="row">
-          <div class="col-md-3 col-sm-6 col-xs-12">
-              <div class="price-box wow fadeInUp"data-wow-duration="2s" data-wow-offset="400">
-                 <h2 class="text-primary"> Hosting</h2>
-                  <p class="center-block">$50</p>
-                  <ul class="list-unstyled">
-                      <li>Space :40GB</li>
-                      <li>Emails :30</li>
-                      <li>IPs :4IP</li>
-                      <li>Databases :30</li>
-                      <li>FTP Accounts :7</li>
-                  </ul>
-                  <a href="#" class="btn btn-primary">Order Now</a>
-              </div>
-          </div>
-          <div class="col-md-3 col-sm-6 col-xs-12">
-              <div class="price-box wow fadeInDown"data-wow-duration="2s" data-wow-offset="400">
-                  <h2 class="text-success"> VPs</h2>
-                  <p class="center-block">$60</p>
-                  <ul class="list-unstyled">
-                      <li>Space :50GB</li>
-                      <li>Emails :40</li>
-                      <li>IPs :7IP</li>
-                      <li>Databases :30</li>
-                      <li>FTP Accounts :10</li>
-                  </ul>
-                  <a href="#" class="btn btn-success">Order Now</a>
-              </div>
-          </div>
-          <div class="col-md-3 col-sm-6 col-xs-12">
-              <div class="price-box wow fadeInUp" data-wow-duration="2s" data-wow-offset="400">
-                  <h2 class="text-info"> Dedicated</h2>
-                  <p class="center-block">$80</p>
-                  <ul class="list-unstyled">
-                      <li>Space :50GB</li>
-                      <li>Emails :40</li>
-                      <li>IPs :10IP</li>
-                      <li>Databases :40</li>
-                      <li>FTP Accounts :15</li>
-                  </ul>
-                  <a href="#" class="btn btn-info">Order Now</a>
-              </div>
-          </div>
+          @foreach ($categories as $category)
           <div class="col-md-3 col-sm-6 col-xs-12">
               <div class="price-box wow fadeInDown" data-wow-duration="2s" data-wow-offset="400">
-                  <h2 class="text-danger"> Cloud</h2>
-                  <p class="center-block">$90</p>
+                  <h2 class="text-danger"> {{$category->name}}</h2>
+                  <!--<p class="center-block">$90</p>-->
                   <ul class="list-unstyled">
-                      <li>Space :90GB</li>
-                      <li>Emails :80</li>
-                      <li>IPs :20IP</li>
-                      <li>Databases :80</li>
-                      <li>FTP Accounts :25</li>
+                      @foreach ($category->courses->take(4) as $course)
+                      <li>{{$course->title}}</li>
+                      @endforeach
                   </ul>
-                  <a href="#" class="btn btn-danger">Order Now</a>
-              </div>
+                  @if($category->courses->count() > 4)
+                  <a href="{{url('/category_courses/'.$category->id)}}" class="btn btn-danger">Show More</a>
+             @endif
+                </div>
           </div>
+          @endforeach
       </div>
   </div>
 </section>

@@ -6,14 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title> Bootstrap cursesis</title>
-    <link rel="stylesheet" href="css/bootstrap.css" />
-   <!--<link rel="stylesheet" href="css/bootstrap.rtl.css" />-->
-    <link rel="stylesheet" href="css/all.min.css" />
-    <link rel="stylesheet" href="css/StyleSheet1.css?ver=9" />
-    <link rel="stylesheet" href="css/media.css" />
-    <link rel="stylesheet" href="css/default-theme.css" />
-    <link rel="stylesheet" href="css/hover.css" />
-    <link rel="stylesheet" href="css/animate.css" />
+    <link rel="stylesheet" href="{{URL::asset('css/bootstrap.css')}}" />
+   <!--<link rel="stylesheet" href="{{URL::asset('css/bootstrap.rtl.css')}}" />-->
+    <link rel="stylesheet" href="{{URL::asset('css/all.min.css')}}" />
+    <link rel="stylesheet" href="{{URL::asset('css/StyleSheet1.css?ver=9')}}" />
+    <link rel="stylesheet" href="{{URL::asset('css/media.css')}}" />
+    <link rel="stylesheet" href="{{URL::asset('css/default-theme.css')}}" />
+    <link rel="stylesheet" href="{{URL::asset('css/hover.css')}}" />
+    <link rel="stylesheet" href="{{URL::asset('css/animate.css')}}" />
     <link rel="stylesheet"href="https://fonts.googleapis.com/css?family=Playfair+Display&display=swap" >
 
     <script src="">https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js</script>
@@ -88,16 +88,16 @@
                 </ul>
                     <ul class="list-unstyled social-list">
                         <li>
-                            <img src="icons/1.png" alt="FaceBook" width="50" height="50" />
+                            <img src="{{URL::asset('icons/1.png')}}" alt="FaceBook" width="50" height="50" />
                         </li>
                         <li>
-                            <img src="icons/2.png" alt="Twitter"width="50" height="50" />
+                            <img src="{{URL::asset('icons/2.png')}}" alt="Twitter"width="50" height="50" />
                         </li>
                         <li>
-                            <img src="icons/3.png" alt="YouTube"width="50" height="50" />
+                            <img src="{{URL::asset('icons/3.png')}}" alt="YouTube"width="50" height="50" />
                         </li>
                         <li>
-                            <img src="icons/4.png" alt="Viber"width="50" height="50" />
+                            <img src="{{URL::asset('icons/4.png')}}" alt="Viber"width="50" height="50" />
                         </li>
                     </ul>
                 </div>
@@ -106,7 +106,7 @@
                     <h3>Latest Articles</h3>
                     <div class="media">
                         <a class="pull-left" href="#">
-                            <img class="media-object" src="articles/1.png" alt="Page 01" width="64" height="64"/>
+                            <img class="media-object" src="{{URL::asset('articles/1.png')}}" alt="Page 01" width="64" height="64"/>
                         </a>
                         <div class="media-body">
                             <h4 class="media-heading">Programing</h4>
@@ -115,7 +115,7 @@
                     </div>
                     <div class="media">
                         <a class="pull-left" href="#">
-                            <img class="media-object" src="articles/2.png" alt="Page 02" width="64" height="64" />
+                            <img class="media-object" src="{{URL::asset('articles/2.png')}}" alt="Page 02" width="64" height="64" />
                         </a>
                         <div class="media-body">
                             <h4 class="media-heading">Coding</h4>
@@ -124,7 +124,7 @@
                     </div>
                     <div class="media">
                         <a class="pull-left" href="#">
-                            <img class="media-object" src="articles/3.png" alt="Page 03" width="64" height="64" />
+                            <img class="media-object" src="{{URL::asset('articles/3.png')}}" alt="Page 03" width="64" height="64" />
                         </a>
                         <div class="media-body">
                             <h4 class="media-heading">Web Design</h4>
@@ -135,10 +135,10 @@
                 </div>
                 <div class="col-lg-4">
                 <h3>Our Awesome Work</h3>
-                    <img  src="work/1.png" alt="Image 01" width="150" height="100" />
-                    <img src="work/2.png" alt="Image 02"width="150" height="100" />
-                    <img src="work/3.png" alt="Image 03"width="150" height="100" />
-                    <img src="work/4.png" alt="Image 04"width="150" height="100" />
+                    <img  src="{{URL::asset('work/1.png')}}" alt="Image 01" width="150" height="100" />
+                    <img src="{{URL::asset('work/2.png')}}" alt="Image 02"width="150" height="100" />
+                    <img src="{{URL::asset('work/3.png')}}" alt="Image 03"width="150" height="100" />
+                    <img src="{{URL::asset('work/4.png')}}" alt="Image 04"width="150" height="100" />
                 </div>
 
             </div>
@@ -163,10 +163,10 @@
         </i>
     </div>
 
-    <script src="js/jquery-3.4.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/plugins.js"></script>
-    <script src="js/wow.min.js"></script>
+    <script src="{{URL::asset('js/jquery-3.4.1.min.js')}}"></script>
+    <script src="{{URL::asset('js/bootstrap.min.js')}}"></script>
+    <script src="{{URL::asset('js/plugins.js')}}"></script>
+    <script src="{{URL::asset('js/wow.min.js')}}"></script>
     <script>
          new WOW().init();
     </script>

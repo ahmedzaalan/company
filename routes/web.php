@@ -13,3 +13,4 @@
 
 Route::get('/','HomeController@index');
 Route::get('/about','HomeController@about');
+Route::get('/category_courses/{category}','HomeController@category_courses');
