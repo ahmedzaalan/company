@@ -60,29 +60,7 @@
                 </div>
            </div>
        @endforeach
-           <!--
-        <div class="col-lg-3 col-md-6">
-               <div class="feat hvr-float-shadow wow bounceInDown"data-wow-duration="1s" data-wow-offset="400">
-                   <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
-                   <h4>Retina Ready</h4>
-                   <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed to an unknown typesetter in the 15th century who is thought to have scrambled parts of Cicero's De Finibus Bonorum et Malorum for use in a type specimen book</p>
-               </div>
-           </div>
-           <div class="col-lg-3 col-md-6">
-               <div class="feat hvr-float-shadow wow bounceInUp"data-wow-duration="1s" data-wow-offset="400">
-                   <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
-                   <h4>Awesome Display</h4>
-                   <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed to an unknown typesetter in the 15th century who is thought to have scrambled parts of Cicero's De Finibus Bonorum et Malorum for use in a type specimen book</p>
-               </div>
-           </div>
-           <div class="col-lg-3 col-md-6">
-               <div class="feat hvr-float-shadow wow bounceInRight"data-wow-duration="1s" data-wow-offset="400">
-                   <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-                   <h4>Well Documented</h4>
-                   <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed to an unknown typesetter in the 15th century who is thought to have scrambled parts of Cicero's De Finibus Bonorum et Malorum for use in a type specimen book</p>
-               </div>
-           </div>
-        -->
+           
 
 
        </div>
@@ -172,39 +150,17 @@
     <div class="container">
         <h1>Meet our awesome teem</h1>
         <div class="row">
+                @foreach ($employees as $employee)
             <div class="col-lg-3 col-sm-6">
                 <div class="person wow pulse" data-wow-duration="1s" data-wow-offset="400">
-                    <img class="img-circle" src="team1.jpg" alt="chris " />
-                    <h3>Chris</h3>
-                    <p>Chris is Amazon company manager </p>
-                    <i class="fab fa-facebook-square fa-5x "></i>
-
+                    <img class="img-circle" src="{{Storage::Url($employee->image_path)}}" alt="chris " />
+                    <h3>{{$employee->name}}</h3>
+                    <p>{{$employee->position->name}}</p>
+                   <!-- <i class="fab fa-facebook-square fa-5x "></i>-->
                 </div>
             </div>
-            <div class="col-lg-3 col-sm-6">
-                <div class="person wow pulse" data-wow-duration="1s" data-wow-offset="400">
-                    <img class="img-circle" src="team2.jpg" alt="mary " />
-                    <h3>Mary</h3>
-                    <p>Mary is the most hakers in the world</p>
-                    <i class="fab fa-facebook-square fa-5x "></i>
-                </div>
-            </div>
-            <div class="col-lg-3 col-sm-6">
-                <div class="person wow pulse" data-wow-duration="1s" data-wow-offset="400">
-                    <img class="img-circle" src="team3.jpg" alt="sozy " />
-                    <h3>Sozy</h3>
-                    <p>Sozy  programing in the world</p>
-                    <i class="fab fa-facebook-square fa-5x "></i>
-                </div>
-            </div>
-            <div class="col-lg-3 col-sm-6">
-                <div class="person wow pulse" data-wow-duration="1s" data-wow-offset="400">
-                    <img class="img-circle" src="team4.jpg" alt="john " />
-                    <h3>John</h3>
-                    <p>John is the most hakers in the world</p>
-                    <i class="fab fa-facebook-square fa-5x "></i>
-                </div>
-            </div>
+            @endforeach
+           
         </div>
     </div>
         </div>
@@ -213,8 +169,9 @@
     <div class="container wow fadeInUp" data-wow-duration="1s" data-wow-offset="400">
         <h1>Keep In Touch</h1>
         <p class=" lead">Sign Up for newslatter Dont worry About spamwe hate it too</p>
-        <form class="form-inline ">
-            <input class="form-controll input-lg" type="text" placeholder="Write your E-mail" />
+        <form class="form-inline" action="/subscribe" method="post">
+            @csrf
+            <input class="form-controll input-lg" type="text" name="email" placeholder="Write your E-mail" />
             <button class="btn-danger btn-lg"><i class="fa fa-edit"></i>Subscribe</button>
         </form>
     </div>

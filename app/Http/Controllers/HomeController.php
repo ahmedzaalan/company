@@ -9,6 +9,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
 use \App\Slider;
 use \App\Project;
+use \App\Employee;
+use \App\NewsSubscriber;
+
 
 class HomeController extends Controller
 {
@@ -19,11 +22,27 @@ class HomeController extends Controller
         $latest_opinions = ClientOpinion::where('show_in_main', '1')->get()->sortByDesc('updated_at')->take(4);
 
         $categories = Category::all()->sortByDesc('updated_at')->take(4);
+        $employees = Employee::all()->take(5);
 
         //$other_variable = 'other_var_value';
         //['xslides' => $slides,'other_variable'=>$other_variable]
         //return view('portal.index', compact('slides','other_variable'));
-        return view('portal.index', compact('slides', 'latest_projects', 'latest_opinions', 'categories'));
+        return view('portal.index', compact('employees','slides', 'latest_projects', 'latest_opinions', 'categories'));
+    }
+
+    public function subscribe(){
+
+        $data = new NewsSubscriber();
+        $data->email = request()->email;
+        $data->save();
+        ///////////////////////////////////////////
+        //NewsSubscriber::create(request()->all());
+        //-----------------------------------
+        session()->flash('msg', 'you have successfully subscribed to our news letter , enjoy!');
+        $email_data = '';//['today_date'=>date('d/m/y')];
+        \Mail::to(request()->email)->
+            send(new \App\Mail\CreateNewSubscriber($email_data));
+        return redirect('/message');
     }
 
     public function category_courses(Category $category)

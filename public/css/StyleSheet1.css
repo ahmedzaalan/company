@@ -1,5 +1,6 @@
 ﻿body {
-    padding-top: 70px;
+    padding-top: 100PX;
+    /*70px;*/
     overflow: auto;
 }
 
@@ -99,6 +100,10 @@ h5,
     background: rgba(3, 3, 3, 0.3);
     padding-left: 20px;
     padding-right: 20px;
+}
+
+#myslide {
+    margin-top: -30px;
 }
 
 .carousel-inner>.item>img {

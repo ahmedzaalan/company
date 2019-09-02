@@ -43,7 +43,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand hvr-pop" href="#">Osama <span>Inc</span></a>
+                <a class="navbar-brand hvr-pop" href="{{url('/')}}">Osama <span>Inc</span></a>
             </div>
         <div class="collapse navbar-collapse navbar-right" id="ournavbar">
                 <ul class="nav navbar-nav navbar">
