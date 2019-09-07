@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use App\ClientOpinion;
+use App\ContactUs;
 use App\Course;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
@@ -50,6 +51,22 @@ class HomeController extends Controller
         $courses = $category->courses()->get();
       // dd($courses );
         return view('portal.category_courses', compact('courses'));
+    }
+
+    public function contact_us(Request $request)
+    {
+        session()->flash('msg', 'We have successfully received you letter, and will contact you soon!');
+
+        //request()==$request
+        $valedated =  request()->validate([
+            'Username' => ['required'],
+            'Email' => ['required'],
+            'Cellphone' => ['required'],
+            'Message' => ['required','max:255']
+        ]);
+
+        ContactUs::create($valedated);
+        return redirect('/message');
     }
 
     public function about()

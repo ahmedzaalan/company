@@ -165,6 +165,7 @@
 
     <script src="{{URL::asset('js/jquery-3.4.1.min.js')}}"></script>
     <script src="{{URL::asset('js/bootstrap.min.js')}}"></script>
+    <script src="{{URL::asset('js/validator.min.js')}}"></script>
     <script src="{{URL::asset('js/plugins.js')}}"></script>
     <script src="{{URL::asset('js/wow.min.js')}}"></script>
     <script>

@@ -419,11 +419,29 @@ h5,
 }
 
 .contact-us input[type="text"],
+.contact-us input[type="number"],
+.contact-us input[type="email"],
 .contact-us textarea {
     background: rgba(82, 78, 78, 0.7);
     color: #fff;
     border: none;
     padding-right: 173px;
+}
+
+.contact-us .form-control:focus {
+  /*border-color: #66afe9;*/
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0), 0 0 8px rgba(102, 175, 233, 0.6) !important;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0), 0 0 8px rgba(102, 175, 233, 1) !important;
+}
+
+.contact-us .has-error .form-control:focus{
+      /*border-color: #843534;*/
+      -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.0), 0 0 8px #e41b17 !important;
+      box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.0), 0 0 8px #e41b17 !important;
+}
+
+.contact-us .form-group.has-error li{
+text-align:left;
 }
 
 .our-clients {

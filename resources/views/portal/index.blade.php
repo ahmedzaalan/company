@@ -60,7 +60,7 @@
                 </div>
            </div>
        @endforeach
-           
+
 
 
        </div>
@@ -160,7 +160,7 @@
                 </div>
             </div>
             @endforeach
-           
+
         </div>
     </div>
         </div>
@@ -176,7 +176,8 @@
         </form>
     </div>
 </section>
-<section class="statistics text-center">
+<!--
+    <section class="statistics text-center">
     <div class="data">
         <div class="container">
             <h1>Our Main Statistics</h1>
@@ -215,6 +216,8 @@
     </div>
 
 </section>
+-->
+<!--
 <section class="our-skills ">
     <div class="container">
         <h1 class="text-center">Our Skills</h1>
@@ -256,6 +259,7 @@
         </div>
     </div>
 </section>
+-->
 <section class="contact-us text-center">
     <div class="fields">
         <div class="container">
@@ -263,20 +267,32 @@
           <h1>Tell What You Feel</h1>
             <p class="lead">Feel Free When You Contact Us Anytime</p>
             <div class="row">
-                <div class="col-lg-6 wow bounceInLeft" data-wow-duration="1s" data-wow-offset="200">
-                <form role="form">
-                    <div class="form-group"><input type="text" class="form-controll input-lg" placeholder="Username" /></div>
-                    <div class="form-group"><input type="text" class="form-controll input-lg" placeholder="Email" /></div>
-                    <div class="form-group"><input type="text" class="form-controll input-lg" placeholder="Cellphone" /></div>
-                </form>
-                    </div>
-                <div class="col-lg-6 wow bounceInRight" data-wow-duration="1s" data-wow-offset="200">
+            <form role="form" method="POST" action="/contact_us" data-toggle="validator">
+                    @csrf
+                   <div class="col-lg-6 wow bounceInLeft" data-wow-duration="1s" data-wow-offset="200">
+
                     <div class="form-group">
-                        <textarea class="form-controll input-lg "placeholder="Your Massege"></textarea>
+                        <input 
+                        data-error="Bruh, that ttttt address is invalid" 
+                        required type="text" class="form-control input-lg" placeholder="Username" name="Username" /></div>
+                    <div class="form-group">
+                        <input required type="email" data-error="Bruh, that email address is invalid" class="form-control input-lg" placeholder="Email" name="Email"/>
+                        <div class="help-block with-errors">
                     </div>
-                    <button type="button" class="btn btn-primary btn-lg btn-block">Contact Us</button>
+                        
+                    </div>
+                    <div class="form-group"><input required type="number" class="form-control input-lg" placeholder="Cellphone" name="Cellphone" /></div>
+                    </div>
+                    <div class="col-lg-6 wow bounceInRight" data-wow-duration="1s" data-wow-offset="200">
+                    <div class="form-group">
+                        <textarea required name="Message" maxlength="255" class="form-control input-lg "placeholder="Your Massege"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-lg btn-block">Contact Us</button>
                 </div>
-            </div>
+            </form>
+
+    <!--@include('errors')-->
+        </div>
         </div>
     </div>
 </section>
