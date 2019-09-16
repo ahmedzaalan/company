@@ -88,7 +88,9 @@
                 </ul>
                     <ul class="list-unstyled social-list">
                         <li>
+                        <a href="{{$settings->where('key','facebook_link')->first()->value}}">
                             <img src="{{URL::asset('icons/1.png')}}" alt="FaceBook" width="50" height="50" />
+                        </a>
                         </li>
                         <li>
                             <img src="{{URL::asset('icons/2.png')}}" alt="Twitter"width="50" height="50" />

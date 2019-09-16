@@ -12,6 +12,7 @@ use \App\Slider;
 use \App\Project;
 use \App\Employee;
 use \App\NewsSubscriber;
+use \App\settings;
 
 
 class HomeController extends Controller
@@ -24,11 +25,12 @@ class HomeController extends Controller
 
         $categories = Category::all()->sortByDesc('updated_at')->take(4);
         $employees = Employee::all()->take(5);
+        $settings=settings::all();
 
         //$other_variable = 'other_var_value';
         //['xslides' => $slides,'other_variable'=>$other_variable]
         //return view('portal.index', compact('slides','other_variable'));
-        return view('portal.index', compact('employees','slides', 'latest_projects', 'latest_opinions', 'categories'));
+        return view('portal.index', compact('employees','slides', 'latest_projects', 'latest_opinions', 'categories','settings'));
     }
 
     public function subscribe(){
