@@ -90,6 +90,7 @@
                         <li>
                         @php
                         $fb = $settings->where('key','facebook_link')->first();
+                        $fb_link = $fb ? $fb->value : '#' ;
                         @endphp
                         <a href="{{$fb_link}}">
                             <img src="{{URL::asset('icons/1.png')}}" alt="FaceBook" width="50" height="50" />
