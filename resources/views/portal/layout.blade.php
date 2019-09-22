@@ -88,7 +88,10 @@
                 </ul>
                     <ul class="list-unstyled social-list">
                         <li>
-                        <a href="{{$settings->where('key','facebook_link')->first()->value}}">
+                        @php
+                        $fb = $settings->where('key','facebook_link')->first();
+                        @endphp
+                        <a href="{{$fb_link}}">
                             <img src="{{URL::asset('icons/1.png')}}" alt="FaceBook" width="50" height="50" />
                         </a>
                         </li>
