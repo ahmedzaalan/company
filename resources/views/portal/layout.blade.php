@@ -87,24 +87,37 @@
                     <li>Contact</li>
                 </ul>
                     <ul class="list-unstyled social-list">
-                        <li>
                         @php
                         $fb = $settings->where('key','facebook_link')->first();
                         $fb_link = $fb ? $fb->value : '#' ;
+                        $tt = $settings->where('key','twitter_link')->first();
+                        $tt_link = $fb ? $tt->value : '#' ;
+                        $yy = $settings->where('key','youtube_link')->first();
+                        $yy_link = $fb ? $yy->value : '#' ;
+                        $vv = $settings->where('key','viber_link')->first();
+                        $vv_link = $fb ? $vv->value : '#' ;
+
                         @endphp
+                        <li>
                         <a href="{{$fb_link}}">
                             <img src="{{URL::asset('icons/1.png')}}" alt="FaceBook" width="50" height="50" />
                         </a>
                         </li>
                         <li>
-                            <img src="{{URL::asset('icons/2.png')}}" alt="Twitter"width="50" height="50" />
-                        </li>
-                        <li>
-                            <img src="{{URL::asset('icons/3.png')}}" alt="YouTube"width="50" height="50" />
-                        </li>
-                        <li>
-                            <img src="{{URL::asset('icons/4.png')}}" alt="Viber"width="50" height="50" />
-                        </li>
+                            <a href="{{$tt_link}}">
+                                <img src="{{URL::asset('icons/2.png')}}" alt="FaceBook" width="50" height="50" />
+                            </a>
+                            </li>
+                            <li>
+                                <a href="{{$yy_link}}">
+                                    <img src="{{URL::asset('icons/3.png')}}" alt="FaceBook" width="50" height="50" />
+                                </a>
+                                </li>
+                                <li>
+                                    <a href="{{$vv_link}}">
+                                        <img src="{{URL::asset('icons/4.png')}}" alt="FaceBook" width="50" height="50" />
+                                    </a>
+                                    </li>
                     </ul>
                 </div>
                 <div class="col-lg-4 col-md-6">

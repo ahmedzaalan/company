@@ -21,7 +21,13 @@ Route::get('/message', function(){
     $msg = session('msg');
     return view('portal.message',compact('msg'));
 });
+//--------------------------------------
 
 /*Route::get('/testUrl', function(){
     return url(Storage::url('image1.jpg'));
 });*/
+//-------------------admin panel routes-------------------
+Route::get('/Admin','AdminHomeController@index');
+Route::get('/Admin/Starter','AdminHomeController@Starter');
+//--------------------------------------------------------
+
