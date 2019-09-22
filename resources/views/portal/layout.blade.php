@@ -93,14 +93,20 @@
                         </a>
                         </li>
                         <li>
-                            <img src="{{URL::asset('icons/2.png')}}" alt="Twitter"width="50" height="50" />
-                        </li>
-                        <li>
-                            <img src="{{URL::asset('icons/3.png')}}" alt="YouTube"width="50" height="50" />
-                        </li>
-                        <li>
-                            <img src="{{URL::asset('icons/4.png')}}" alt="Viber"width="50" height="50" />
-                        </li>
+                            <a href="{{$settings->where('key','twitter_link')->first()->value}}">
+                                <img src="{{URL::asset('icons/2.png')}}" alt="FaceBook" width="50" height="50" />
+                            </a>
+                            </li>
+                            <li>
+                                <a href="{{$settings->where('key','youtube_link')->first()->value}}">
+                                    <img src="{{URL::asset('icons/3.png')}}" alt="FaceBook" width="50" height="50" />
+                                </a>
+                                </li>
+                                <li>
+                                    <a href="{{$settings->where('key','viber_link')->first()->value}}">
+                                        <img src="{{URL::asset('icons/4.png')}}" alt="FaceBook" width="50" height="50" />
+                                    </a>
+                                    </li>
                     </ul>
                 </div>
                 <div class="col-lg-4 col-md-6">
